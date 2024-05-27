@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages</title>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .message-container {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    .day-heading {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <% Object.keys(messagesByDayAndTime).forEach(dayAndTime => { %>
+  <div class="message-container">
+    <div class="day-heading"><%= dayAndTime %></div>
+    <% messagesByDayAndTime[dayAndTime].forEach(message => { %>
+    <div class="message">
+      <div><strong>Name:</strong> <%= message.Name %></div>
+      <div><strong>Email:</strong> <%= message.Email %></div>
+      <div><strong>Message:</strong> <%= message.message %></div>
+      <div><strong>Sent At:</strong> <%= message.sendAt %></div>
+    </div>
+    <% }); %>
+  </div>
+  <% }); %>
+</body>
+
+</html>
