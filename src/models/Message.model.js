@@ -5,7 +5,7 @@ const messageSchema = new mongoose.Schema({
   Name: String,
   Email: String,
   message: String,
-  sendAt: { type: String, default: new Date() },
+  sendAt: { type: String, default: new Date().toLocaleTimeString() },
 });
 
 const Message = mongoose.model("Message", messageSchema);
