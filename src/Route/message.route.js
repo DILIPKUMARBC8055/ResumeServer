@@ -6,7 +6,7 @@ const messageRoute = Router();
 messageRoute.get("/", async (req, res) => {
   try {
     // Fetch all messages from the database and sort them by sendAt field in descending order
-    const messages = await Message.find().sort({ sendAt: -1 });
+    const messages = await Message.find().sort({ sendAt: 1 });
     // Group messages by day and time
     const messagesByDayAndTime = {};
     messages.forEach((message) => {
